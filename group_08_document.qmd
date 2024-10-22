@@ -7,6 +7,97 @@ editor: visual
 
 ## Mart
 
+Hej, jeg synes i er awesome og derfor er jeg i gruppe med jer. For jeg ønsker at blive lige så awesome som jer :)
+
+```{r}
+# Load necessary libraries
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r}
+
+# Create a function to generate a circle, useful for head and eyes
+generate_circle <- function(center = c(0, 0), radius = 1, npoints = 100){
+  theta <- seq(0, 2 * pi, length.out = npoints)
+  x <- center[1] + radius * cos(theta)
+  y <- center[2] + radius * sin(theta)
+  return(data.frame(x = x, y = y))
+}
+
+# Body of the dog
+body <- data.frame(
+  x = c(2, 8, 8, 2), 
+  y = c(2.5, 2.5, 5, 5)
+)
+
+# Head - circle shape
+head <- generate_circle(center = c(8.5, 5.5), radius = 1.5)
+
+# Ears - triangles
+left_ear <- data.frame(x = c(7.5, 8, 8.5), y = c(6.5, 8.5, 6.5))
+right_ear <- data.frame(x = c(8.5, 9, 9.5), y = c(6.5, 8.5, 6.5))
+
+# Eyes - smaller circles
+left_eye <- generate_circle(center = c(8, 5.8), radius = 0.2)
+right_eye <- generate_circle(center = c(9, 5.8), radius = 0.2)
+
+# Nose - small circle
+nose <- generate_circle(center = c(8.5, 5), radius = 0.2)
+
+# Tail - a curve (approximated by multiple points)
+tail <- data.frame(
+  x = c(2, 1.5, 1.2, 1, 0.8), 
+  y = c(4, 4.7, 5.3, 5.8, 6.3)
+)
+
+# Legs - line segments
+left_leg <- data.frame(x = c(3, 3), y = c(2.5, 1))
+right_leg <- data.frame(x = c(7, 7), y = c(2.5, 1))
+
+# Paws - circles at the bottom of the legs
+left_paw <- generate_circle(center = c(3, 0.8), radius = 0.3)
+right_paw <- generate_circle(center = c(7, 0.8), radius = 0.3)
+
+# Plot the dog
+ggplot() +
+  # Draw the body
+  geom_polygon(data = body, aes(x = x, y = y), fill = "saddlebrown") +
+  
+  # Draw the head
+  geom_polygon(data = head, aes(x = x, y = y), fill = "peru") +
+  
+  # Draw the ears
+  geom_polygon(data = left_ear, aes(x = x, y = y), fill = "saddlebrown") +
+  geom_polygon(data = right_ear, aes(x = x, y = y), fill = "saddlebrown") +
+  
+  # Draw the eyes
+  geom_polygon(data = left_eye, aes(x = x, y = y), fill = "black") +
+  geom_polygon(data = right_eye, aes(x = x, y = y), fill = "black") +
+  
+  # Draw the nose
+  geom_polygon(data = nose, aes(x = x, y = y), fill = "black") +
+  
+  # Draw the legs
+  geom_segment(aes(x = left_leg$x[1], y = left_leg$y[1], 
+                   xend = left_leg$x[2], yend = left_leg$y[2]), size = 2) +
+  geom_segment(aes(x = right_leg$x[1], y = right_leg$y[1], 
+                   xend = right_leg$x[2], yend = right_leg$y[2]), size = 2) +
+  
+  # Draw the paws
+  geom_polygon(data = left_paw, aes(x = x, y = y), fill = "darkorange") +
+  geom_polygon(data = right_paw, aes(x = x, y = y), fill = "darkorange") +
+  
+  # Draw the tail
+  geom_line(data = tail, aes(x = x, y = y), size = 1, color = "darkred") +
+  
+  # Theme and final adjustments
+  coord_fixed() +  # Ensure fixed aspect ratio
+  theme_void()     # Remove axes and background
+
+
+```
+
 ## Cecilie
 
 ## Manda
