@@ -130,3 +130,11 @@ blomst
 2+2
 #er det lig 4!?
 ```
+
+### New feature 
+
+```{r}
+y <- 2+2 
+#er det lig fire
+print(y)
+```
