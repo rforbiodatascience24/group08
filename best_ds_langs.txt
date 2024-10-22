@@ -8,12 +8,4 @@ Top 10 Bio Data Science Languages of ALL Time:
 4. has
 3. different
 2. tastes
-<<<<<<< HEAD
-<<<<<<< HEAD
-1. jeg elsker mussenumser
-=======
-1. jeg elsker at cykle i regnen og blive plasket
->>>>>>> 1da7c00da728b9a029c1d46099432c3b4d24b8ba
-=======
 1. R is superior!
->>>>>>> 755af65bd0803ca0f2e4a735553604936b94a9ad
