@@ -27,18 +27,14 @@ library("broom")
 
 ## Load data
 
-
-
-
 ```{r}
 biopsy <- read_csv("https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv")
 ```
 
 ### Data wrangling
 
-
-
 ### Principal Component analysis
+
 ```{r}
 pca_fit <- biopsy |> # make a PCA fit
   select(where(is.numeric)) |> # choose only numeric values
@@ -61,9 +57,3 @@ pca_fit |>
       benign = "green")
   ) 
 ```
-
-
-
-
-
-
