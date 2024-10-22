@@ -5,10 +5,10 @@ format: html
 editor: visual
 ---
 
-## Load libraries 
+## Load libraries
 
-## Load data 
+## Load data
 
-### Data wranling 
+### Data wranling
 
 ### Data analisys
