@@ -9,6 +9,12 @@ editor: visual
 
 ## Cecilie
 
+Hej det her er Cecilies kode
+
+```{r}
+fire = 2+2
+```
+
 ## Manda
 
 ```{r}
@@ -24,3 +30,12 @@ print("Hej til tirsdagen, vær søde ved hinanden")
 ```
 
 ## Julle
+
+hejsa venner se min seje kode
+
+blomst
+
+```{r}
+2+2
+#er det lig 4!?
+```
