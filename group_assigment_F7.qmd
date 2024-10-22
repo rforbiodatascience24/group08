@@ -38,21 +38,27 @@ biopsy <- read_csv("https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv")
 
 
 
-### Data analysis
+### Principal Component analysis
 ```{r}
 pca_fit <- biopsy |> # make a PCA fit
   select(where(is.numeric)) |> # choose only numeric values
   prcomp(scale = TRUE) 
 ```
 
-
 ```{r}
 pca_fit |> 
-  augment(biopsy) |> 
-  ggplot(aes(.fittedPC1, .fittedPC2, color = outcome)) + 
-  geom_point(size = 1.5) +
-  scale_color_manual(
-    values = c(malignant = "#D55E00", benign = "#0072B2")
+  augment(biopsy) |> # include original data
+  ggplot(aes(.fittedPC1, .fittedPC2, color = outcome)) + # make ggplot
+  geom_point(size = 2) + # chose size of points
+  labs(                         # add x- and y-axis labels
+    x = "Principal Component 1",
+    y = "Principal Component 2",
+    title = "PCA of Biopsy Data"
+  ) +
+  scale_color_manual(        # add colors depending on benign or malignant
+    values = c(
+      malignant = "red", 
+      benign = "green")
   ) 
 ```
 
