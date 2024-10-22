@@ -16,6 +16,7 @@ library(ggplot2)
 ```
 
 ```{r}
+#How to dog ruuuff
 
 # Create a function to generate a circle, useful for head and eyes
 generate_circle <- function(center = c(0, 0), radius = 1, npoints = 100){
