@@ -265,7 +265,7 @@ blomst
 #er det lig 4!?
 ```
 
-### New feature 
+### New feature
 
 ```{r}
 y <- 2+2 
