@@ -12,3 +12,12 @@ editor: visual
 ## Manda
 
 ## Julle
+
+hejsa venner se min seje kode
+
+blomst
+
+```{r}
+2+2
+#er det lig 4!?
+```
