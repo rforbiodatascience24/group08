@@ -9,7 +9,11 @@ Top 10 Bio Data Science Languages of ALL Time:
 3. different
 2. tastes
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. Hej tøsepiger lets make a mess
 =======
 1. jeg elsker at cykle i regnen og blive plasket
 >>>>>>> 1da7c00da728b9a029c1d46099432c3b4d24b8ba
+=======
+1. R is superior!
+>>>>>>> 52a7775a93b7b4d7bc37c853710506b48185aaac
