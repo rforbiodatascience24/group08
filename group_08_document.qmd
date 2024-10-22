@@ -339,3 +339,78 @@ ggplot() +
     plot.subtitle = element_text(hjust = 0.5, size = 16, color = "gray")
   )
 ```
+
+### New analysis
+
+```{r}
+
+
+# Bæverens krop som en ellipse (ovalt formet)
+krop <- data.frame(
+  x = cos(seq(0, 2*pi, length.out = 100)) * 2,   # Justerer x-skala for oval krop
+  y = sin(seq(0, 2*pi, length.out = 100)) * 1.5  # Justerer y-skala for oval krop
+)
+
+# Halen som en aflang ellipse
+hale <- data.frame(
+  x = 1.2 + cos(seq(0, pi, length.out = 100)) * 1.5,  # Aflang hale, der starter ved kroppens bagende
+  y = sin(seq(0, pi, length.out = 100)) * 0.5 - 1.8
+)
+
+# Øjne som cirkler
+øjne <- data.frame(
+  x = c(-0.5, 0.5),  # Position for øjnene
+  y = c(0.6, 0.6)
+)
+
+# Øre som små cirkler
+øre <- data.frame(
+  x = c(-1.5, 1.5),  # Position for ørerne
+  y = c(1.0, 1.0)
+)
+
+# Næse som en cirkel
+næse <- data.frame(
+  x = 0,
+  y = 0.2
+)
+
+# Bæverens tænder som to rektangler
+tænder <- data.frame(
+  x = c(-0.1, 0.1, 0.1, -0.1),
+  y = c(-0.4, -0.4, -0.6, -0.6)
+)
+
+# Tegn den samlede bæver med ggplot
+ggplot() +
+  # Tegn kroppen
+  geom_polygon(data = krop, aes(x = x, y = y), fill = "saddlebrown", color = "black", size = 1) +
+  
+  # Tegn halen
+  geom_polygon(data = hale, aes(x = x, y = y), fill = "darkgray", color = "black", size = 1) +
+  
+  # Tegn øjne
+  geom_point(data = øjne, aes(x = x, y = y), size = 8, color = "white") +   # Hvide øjne
+  geom_point(data = øjne, aes(x = x, y = y), size = 4, color = "black") +   # Sorte pupiller
+
+  # Tegn ører
+  geom_point(data = øre, aes(x = x, y = y), size = 6, color = "saddlebrown", shape = 21, fill = "saddlebrown", stroke = 1) +
+  
+  # Tegn næse
+  geom_point(data = næse, aes(x = x, y = y), size = 5, color = "black") +
+  
+  # Tegn tænder
+  geom_polygon(data = tænder, aes(x = x, y = y), fill = "white", color = "black", size = 1) +
+  
+  # Tema for et rent og professionelt look
+  theme_void() +   # Fjern akser og baggrund
+  coord_fixed() +  # Bevar proportionerne
+  labs(
+    title = "Ultra Hyper-Realistisk Bæver Graf",
+    subtitle = "En hyper-kreativ, men meget professionel fortolkning"
+  ) +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 24, face = "bold", color = "saddlebrown"),  
+    plot.subtitle = element_text(hjust = 0.5, size = 16, color = "gray")
+  )
+```
