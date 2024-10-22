@@ -28,8 +28,36 @@ library("broom")
 ## Load data
 
 
-### Data wrangling
+
 
 ```{r}
 biopsy <- read_csv("https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv")
 ```
+
+### Data wrangling
+
+
+
+### Data analysis
+```{r}
+pca_fit <- biopsy |> # make a PCA fit
+  select(where(is.numeric)) |> # choose only numeric values
+  prcomp(scale = TRUE) 
+```
+
+
+```{r}
+pca_fit |> 
+  augment(biopsy) |> 
+  ggplot(aes(.fittedPC1, .fittedPC2, color = outcome)) + 
+  geom_point(size = 1.5) +
+  scale_color_manual(
+    values = c(malignant = "#D55E00", benign = "#0072B2")
+  ) 
+```
+
+
+
+
+
+
