@@ -107,6 +107,17 @@ Hej det her er Cecilies kode
 fire = 2+2
 ```
 
+### **New analysis**
+
+Look at these cool analysiseeeees
+
+```{r}
+some_date <- 4
+some_other_data <- 9
+
+data_sum <- some_date + some_other_data
+```
+
 ## Manda
 
 ```{r}
