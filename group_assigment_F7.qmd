@@ -9,6 +9,10 @@ editor: visual
 
 ## Load data
 
+```{r}
+biopsy <- read_csv("https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv")
+```
+
 ### Data wranling
 
 ### Data analisys
