@@ -99,6 +99,123 @@ ggplot() +
 
 ```
 
+### Creating a cat of awesomeness
+
+```{r}
+
+# Function to generate a circle, useful for the head, eyes, nose, etc.
+generate_circle <- function(center = c(0, 0), radius = 1, npoints = 100){
+  theta <- seq(0, 2 * pi, length.out = npoints)
+  x <- center[1] + radius * cos(theta)
+  y <- center[2] + radius * sin(theta)
+  return(data.frame(x = x, y = y))
+}
+
+# Body of the cat - large oval
+body <- data.frame(
+  x = c(3, 7, 7, 3), 
+  y = c(2, 2, 6, 6)
+)
+
+# Head - a larger circle
+head <- generate_circle(center = c(5, 6.8), radius = 1.8)
+
+# Ears - triangular shapes
+left_ear <- data.frame(x = c(3.8, 4.5, 4), y = c(7.7, 9, 7.5))
+right_ear <- data.frame(x = c(5.5, 6.2, 6), y = c(7.7, 9, 7.5))
+
+# Eyes - large ovals
+left_eye <- generate_circle(center = c(4.5, 7), radius = 0.35)
+right_eye <- generate_circle(center = c(5.5, 7), radius = 0.35)
+
+# Pupils - smaller circles inside eyes
+left_pupil <- generate_circle(center = c(4.5, 7), radius = 0.15)
+right_pupil <- generate_circle(center = c(5.5, 7), radius = 0.15)
+
+# Nose - small triangle
+nose <- data.frame(x = c(4.9, 5.1, 5), y = c(6.5, 6.5, 6.3))
+
+# Mouth - small curve
+mouth <- data.frame(x = c(4.8, 5, 5.2), y = c(6.1, 6.0, 6.1))
+
+# Whiskers - straight lines on both sides of the nose
+left_whiskers <- data.frame(x = c(4.2, 4.2, 4.2), y = c(6.3, 6.4, 6.2))
+right_whiskers <- data.frame(x = c(5.8, 5.8, 5.8), y = c(6.3, 6.4, 6.2))
+
+# Stripes on the forehead - three short lines
+stripes <- data.frame(
+  x = c(4.5, 5, 5.5), 
+  xend = c(4.5, 5, 5.5), 
+  y = c(7.8, 7.8, 7.8), 
+  yend = c(7.5, 7.5, 7.5)
+)
+
+# Tail - a curve (represented as points)
+tail <- data.frame(
+  x = c(7, 7.5, 7.8, 7.9, 7.95), 
+  y = c(5.2, 5.5, 5.8, 6, 6.5)
+)
+
+# Legs - line segments for front and back legs
+left_leg <- data.frame(x = c(3.8, 3.8), y = c(2, 1))
+right_leg <- data.frame(x = c(6.2, 6.2), y = c(2, 1))
+
+# Paws - circles for paws at the bottom of legs
+left_paw <- generate_circle(center = c(3.8, 0.8), radius = 0.3)
+right_paw <- generate_circle(center = c(6.2, 0.8), radius = 0.3)
+
+# Plot the cat
+ggplot() +
+  # Draw the body
+  geom_polygon(data = body, aes(x = x, y = y), fill = "orange") +
+  
+  # Draw the head
+  geom_polygon(data = head, aes(x = x, y = y), fill = "orange") +
+  
+  # Draw the ears
+  geom_polygon(data = left_ear, aes(x = x, y = y), fill = "orange") +
+  geom_polygon(data = right_ear, aes(x = x, y = y), fill = "orange") +
+  
+  # Draw the eyes
+  geom_polygon(data = left_eye, aes(x = x, y = y), fill = "white") +
+  geom_polygon(data = right_eye, aes(x = x, y = y), fill = "white") +
+  
+  # Draw the pupils
+  geom_polygon(data = left_pupil, aes(x = x, y = y), fill = "black") +
+  geom_polygon(data = right_pupil, aes(x = x, y = y), fill = "black") +
+  
+  # Draw the nose
+  geom_polygon(data = nose, aes(x = x, y = y), fill = "pink") +
+  
+  # Draw the mouth
+  geom_line(data = mouth, aes(x = x, y = y), size = 1, color = "black") +
+  
+  # Draw the whiskers
+  geom_segment(data = left_whiskers, aes(x = x, y = y, xend = x - 0.6, yend = y), color = "black") +
+  geom_segment(data = right_whiskers, aes(x = x, y = y, xend = x + 0.6, yend = y), color = "black") +
+  
+  # Draw the stripes on the forehead
+  geom_segment(data = stripes, aes(x = x, y = y, xend = xend, yend = yend), size = 1.5, color = "darkorange") +
+  
+  # Draw the tail
+  geom_line(data = tail, aes(x = x, y = y), size = 1.5, color = "orange") +
+  
+  # Draw the legs
+  geom_segment(aes(x = left_leg$x[1], y = left_leg$y[1], 
+                   xend = left_leg$x[2], yend = left_leg$y[2]), size = 2, color = "orange") +
+  geom_segment(aes(x = right_leg$x[1], y = right_leg$y[1], 
+                   xend = right_leg$x[2], yend = right_leg$y[2]), size = 2, color = "orange") +
+  
+  # Draw the paws
+  geom_polygon(data = left_paw, aes(x = x, y = y), fill = "pink") +
+  geom_polygon(data = right_paw, aes(x = x, y = y), fill = "pink") +
+  
+  # Theme and final adjustments
+  coord_fixed() +  # Ensure fixed aspect ratio
+  theme_void()     # Remove axes and background
+
+```
+
 ## Cecilie
 
 Hej det her er Cecilies kode
