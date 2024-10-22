@@ -11,6 +11,16 @@ editor: visual
 
 ## Manda
 
-## Julle
+```{r}
+random_vector <- c(1,4,6,4,9,6,2,3,5)
+```
 
-.
+```{r}
+print("Hej til tirsdagen, vær søde ved hinanden")
+```
+
+```{r}
+
+```
+
+## Julle
