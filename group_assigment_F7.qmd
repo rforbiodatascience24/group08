@@ -9,6 +9,6 @@ editor: visual
 
 ## Load data
 
-### Data wranling
+### Data wrangling
 
-### Data analisys
+### Data analysis
