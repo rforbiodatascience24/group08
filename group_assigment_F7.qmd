@@ -7,6 +7,24 @@ editor: visual
 
 ## Load libraries
 
+```{r}
+#| message: false
+
+library("dplyr")
+library("tidyverse")
+library("here")
+library("ggraph")
+library("ggridges")
+library("stringr")
+library("RColorBrewer")
+library("ggthemes")
+library("ggseqlogo")
+library("purrr")
+library("modelr")
+library("broom")
+
+```
+
 ## Load data
 
 ### Data wranling
