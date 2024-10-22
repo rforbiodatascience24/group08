@@ -9,6 +9,12 @@ editor: visual
 
 ## Cecilie
 
+Hej det her er Cecilies kode
+
+```{r}
+fire = 2+2
+```
+
 ## Manda
 
 ## Julle
